@@ -1,0 +1,15 @@
+#path to docker file for run server
+services:
+  web-app:
+    build:
+      context: .
+    #ports from docker to system
+    ports:
+      - "8000:8000"
+    #folder for docker from local system for dynamic edits code on docker
+    volumes:
+      - ./service:/service
+
+      #command for runserver on docker
+    command: >
+      sh -c "python manage.py runserver 0.0.0.0:8000"
