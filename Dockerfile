@@ -7,6 +7,9 @@ COPY service /service
 WORKDIR /service
 EXPOSE 8000
 
+#settings for packages psql for django
+RUN apk add postgresql-client build-base postgresql-dev
+
 #install pip requirements
 RUN pip install -r /temp/requirements.txt
 
